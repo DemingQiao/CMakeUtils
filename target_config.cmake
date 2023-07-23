@@ -1,5 +1,5 @@
 function(LIBRARY_INSTALL_CONFIG LIBRARY_NAME)
-    aux_source_directory(${CMAKE_SOURCE_DIR}/src/${LIBRARY_NAME} SRC)
+    file(GLOB_RECURSE SRC ${CMAKE_CURRENT_SOURCE_DIR} *.cpp *.h)
     add_library(${LIBRARY_NAME} SHARED ${SRC})
     target_compile_definitions(${LIBRARY_NAME} PRIVATE ${LIBRARY_NAME}_EXPORT)
     configure_file(${CMAKE_SOURCE_DIR}/cmake/export.h.in ${CMAKE_SOURCE_DIR}/include/${LIBRARY_NAME}/export.h @ONLY)
