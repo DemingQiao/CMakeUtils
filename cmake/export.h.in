@@ -1,0 +1,11 @@
+#pragma once
+
+#if defined(_WIN32)
+#if defined(@LIBRARY_NAME@_EXPORT)
+#define @LIBRARY_NAME@_API __declspec(dllexport)
+#else
+#define @LIBRARY_NAME@_API __declspec(dllimport)
+#endif
+#else
+#define @LIBRARY_NAME@_API
+#endif
